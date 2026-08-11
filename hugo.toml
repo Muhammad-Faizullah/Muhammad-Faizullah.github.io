@@ -1,0 +1,29 @@
+baseURL = "https://muhammad-faizullah.github.io/"
+languageCode = "en-us"
+title = "Muhammad Faizullah | Backend Engineer"
+theme = "PaperMod"
+
+[params]
+    defaultTheme = "dark"
+    showCodeCopyButtons = true
+    
+    # This section creates the professional "Landing Page" look
+    [params.profileMode]
+        enabled = true
+        title = "Muhammad Faizullah"
+        subtitle = """
+        Backend Developer specializing in Python, Django & Django REST Framework 
+        Building scalable APIs, backend systems, and integrations for real-world applications.
+        """
+        imageUrl = "https://github.com/Muhammad-Faizullah.png"
+        
+        [[params.profileMode.buttons]]
+            name = "Explore Projects"
+            url = "/projects"
+
+    [[params.socialIcons]]
+        name = "github"
+        url = "https://github.com/Muhammad-Faizullah"
+    [[params.socialIcons]]
+        name = "linkedin"
+        url = "https://linkedin.com/in/muhammad-faizullah-0921a8375/" # <-- UPDATE THIS
