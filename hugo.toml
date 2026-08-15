@@ -1,6 +1,6 @@
 baseURL = "https://muhammad-faizullah.github.io/"
 languageCode = "en-us"
-title = "Muhammad Faizullah | Backend Engineer"
+title = "Muhammad Faizullah"
 theme = "PaperMod"
 
 [params]
@@ -11,10 +11,7 @@ theme = "PaperMod"
     [params.profileMode]
         enabled = true
         title = "Muhammad Faizullah"
-        subtitle = """
-        Backend Developer specializing in Python, Django & Django REST Framework 
-        Building scalable APIs, backend systems, and integrations for real-world applications.
-        """
+        subtitle = "Backend Developer specializing in Python, Django & Django REST Framework. Building scalable APIs, backend systems, and integrations for real-world applications."
         imageUrl = "https://github.com/Muhammad-Faizullah.png"
         
         [[params.profileMode.buttons]]
