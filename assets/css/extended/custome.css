@@ -327,3 +327,65 @@
 .terminal-footer strong {
     color: #59d499;
 }
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .portfolio-home {
+        padding: 0 20px;
+    }
+
+    .portfolio-nav {
+        padding: 20px 0;
+    }
+
+    /* Change desktop 2-column layout to 1 column */
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 50px 0;
+    }
+
+    /* Make the name fit naturally */
+    .hero-content h1 {
+        font-size: 48px;
+        line-height: 1.05;
+    }
+
+    /* Use the full available width */
+    .tagline {
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    /* Keep buttons usable on mobile */
+    .cta-row {
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 28px;
+    }
+
+    .btn {
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Prevent the terminal card from overflowing */
+    .terminal-card {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .terminal-body {
+        padding: 16px;
+        overflow-x: auto;
+    }
+
+    .terminal-footer {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
