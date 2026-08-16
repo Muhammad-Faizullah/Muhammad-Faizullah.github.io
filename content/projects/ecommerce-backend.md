@@ -1,20 +1,39 @@
 ---
-title: 'Ecommerce Backend'
-date : 2026-03-31T16:07:54+05:00
-draft: false
+title: "Ecommerce Backend"
+date: 2026-03-31
+
+status: "shipped"
+readTime: "4 min read"
+
+tags:
+  - Django
+  - SQLite
+  - Auth
+  - REST
+
+domains: "User, Product, Order"
+database: "SQLite, zero-config"
+integrity: "FK-constrained schema"
+
+github: "https://github.com/Muhammad-Faizullah/E-Commerce"
 ---
 
-### The Engineering Challenge
-Building a scalable e-commerce backend requires a secure, performant system that handles user authentication, complex product catalogs, and reliable order processing.
+## The engineering challenge
 
-### My Backend Implementation
-- **Architecture:** Designed a modular Django structure with clear separation between User, Product, and Order domains.
-- **Database Management:** Leveraged **SQLite** for a lightweight, zero-configuration development environment, ensuring the entire project remains highly portable and easy to demonstrate.
-- **Relational Integrity:** Implemented a robust schema with foreign key constraints to ensure 100% accuracy in stock levels and order history.
-- **Security:** Built a custom authentication flow to handle user data securely.
+A scalable e-commerce backend needs more than working endpoints. It needs a secure and reliable system that handles user authentication, product catalogs, and order processing.
 
-### Key Logic
-- **State Management:** Developed logic to handle cart-to-order transitions, ensuring atomicity during the checkout process.
-- **Code Portability:** Optimized the database configuration so the system can be cloned and run instantly on any local environment with zero external dependencies.
+## My backend implementation
 
-[View the Source Code on GitHub](https://github.com/Muhammad-Faizullah/E-Commerce)
+- **Architecture** — A modular Django structure with clear separation between the User, Product, and Order domains.
+
+- **Database management** — Used `SQLite` for a lightweight, zero-configuration development environment, keeping the project portable and easy to run.
+
+- **Relational integrity** — The database schema uses foreign key relationships to help maintain accurate product and order data.
+
+- **Security** — Implemented authentication and backend logic for handling user data and protected functionality.
+
+## Key logic
+
+- **State management** — Handles the flow from cart to order and keeps the checkout process organized.
+
+- **Code portability** — The project can be cloned and run locally without requiring external services.

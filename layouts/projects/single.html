@@ -1,0 +1,89 @@
+{{ define "main" }}
+
+<div class="project-page">
+
+    <div class="project-breadcrumb">
+        <a href="{{ "/projects/" | relURL }}">/projects</a>
+        <span>/</span>
+        <span>{{ .File.ContentBaseName }}</span>
+    </div>
+
+    <section class="project-header">
+
+        <div class="project-route">
+            <span class="project-method">GET</span>
+            <span class="project-route-path">/projects/{{ .File.ContentBaseName }}</span>
+
+            {{ with .Params.status }}
+            <span class="project-status">
+                <span class="status-dot"></span>
+                {{ . }}
+            </span>
+            {{ end }}
+        </div>
+
+        <h1>{{ .Title }}</h1>
+
+        <div class="project-meta">
+            <span>{{ .Date.Format "January 2, 2006" }}</span>
+
+            {{ with .Params.readTime }}
+            <span>{{ . }}</span>
+            {{ end }}
+        </div>
+
+        {{ with .Params.tags }}
+        <div class="project-tags">
+            {{ range . }}
+            <span class="project-tag">{{ . }}</span>
+            {{ end }}
+        </div>
+        {{ end }}
+
+    </section>
+
+
+    {{ if or .Params.domains .Params.database .Params.integrity }}
+    <section class="project-stats">
+
+        {{ with .Params.domains }}
+        <div class="project-stat">
+            <div class="stat-label">Domains</div>
+            <div class="stat-value">{{ . }}</div>
+        </div>
+        {{ end }}
+
+        {{ with .Params.database }}
+        <div class="project-stat">
+            <div class="stat-label">Database</div>
+            <div class="stat-value">{{ . }}</div>
+        </div>
+        {{ end }}
+
+        {{ with .Params.integrity }}
+        <div class="project-stat">
+            <div class="stat-label">Integrity</div>
+            <div class="stat-value">{{ . }}</div>
+        </div>
+        {{ end }}
+
+    </section>
+    {{ end }}
+
+
+    <article class="project-content">
+        {{ .Content }}
+    </article>
+
+
+    {{ with .Params.github }}
+    <div class="project-cta">
+        <a href="{{ . }}" target="_blank" rel="noopener">
+            View source on GitHub →
+        </a>
+    </div>
+    {{ end }}
+
+</div>
+
+{{ end }}

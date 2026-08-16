@@ -1,0 +1,101 @@
+{{ define "main" }}
+
+<div class="projects-page">
+
+    <!-- Page Header -->
+    <section class="projects-header">
+
+        <div class="projects-eyebrow">
+            GET /projects
+        </div>
+
+        <h1>Featured projects</h1>
+
+        <p class="projects-lead">
+            A selection of backend systems built with Python, Django, and
+            Django REST Framework — from integrations to production workflows.
+        </p>
+
+    </section>
+
+
+    <!-- Projects -->
+    <section class="project-list">
+
+        {{ range .Pages }}
+
+        <a href="{{ .RelPermalink }}" class="project-card">
+
+            <!-- Route and Status -->
+            <div class="route-row">
+
+                <span class="method">
+                    GET
+                </span>
+
+                <span class="route-path">
+                    {{ .RelPermalink }}
+                </span>
+
+                {{ with .Params.status }}
+                <span class="status-pill">
+                    <span class="dot"></span>
+                    {{ . }}
+                </span>
+                {{ end }}
+
+            </div>
+
+
+            <!-- Project Title -->
+            <h2 class="project-title">
+                {{ .Title }}
+            </h2>
+
+
+            <!-- Description -->
+            <p class="project-desc">
+                {{ with .Description }}
+                    {{ . }}
+                {{ else }}
+                    {{ .Summary | plainify | truncate 180 }}
+                {{ end }}
+            </p>
+
+
+            <!-- Tags -->
+            {{ with .Params.tags }}
+
+            <div class="tag-row">
+
+                {{ range . }}
+                    <span class="tag">{{ . }}</span>
+                {{ end }}
+
+            </div>
+
+            {{ end }}
+
+
+            <!-- Card Footer -->
+            <div class="card-foot">
+
+                <span>
+                    {{ .Date.Format "January 2, 2006" }}
+                </span>
+
+                <span class="view">
+                    Read the writeup →
+                </span>
+
+            </div>
+
+        </a>
+
+        {{ end }}
+
+    </section>
+
+</div>
+
+{{ end }}
