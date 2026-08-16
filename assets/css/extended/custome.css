@@ -1,0 +1,329 @@
+/* =========================================
+   CUSTOM PORTFOLIO HOMEPAGE
+   ========================================= */
+
+.portfolio-home {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+
+.portfolio-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-id {
+    font-family: monospace;
+    font-size: 15px;
+    color: var(--secondary);
+}
+
+.nav-id strong {
+    color: var(--primary);
+}
+
+
+/* Theme button */
+
+.theme-btn {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 10px;
+    border: 1px solid var(--border);
+
+    background: var(--theme);
+    color: var(--primary);
+
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+
+    gap: 56px;
+
+    padding: 76px 0 64px;
+
+    align-items: center;
+}
+
+
+/* =========================================
+   LEFT SIDE
+   ========================================= */
+
+.availability {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 18px;
+
+    font-family: monospace;
+    font-size: 13px;
+
+    color: #3452e1;
+}
+
+
+/* Green status dot */
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #1c9a66;
+}
+
+
+/* Main name */
+
+.hero-content h1 {
+    margin: 0 0 20px;
+
+    font-size: 52px;
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+
+/* Description */
+
+.tagline {
+    max-width: 460px;
+
+    margin-bottom: 32px;
+
+    font-size: 17px;
+    line-height: 1.6;
+
+    color: var(--secondary);
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.cta-row {
+    display: flex;
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 36px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 13px 20px;
+
+    border-radius: 10px;
+
+    font-family: monospace;
+    font-size: 14px;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+
+/* Primary button */
+
+.btn-primary {
+    background: var(--primary);
+
+    color: var(--theme);
+
+    border: 1px solid var(--primary);
+}
+
+
+/* Secondary button */
+
+.btn-secondary {
+    background: transparent;
+
+    color: var(--secondary);
+
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    color: var(--primary);
+    border-color: var(--secondary);
+}
+
+
+/* =========================================
+   SOCIAL LINKS
+   ========================================= */
+
+.social-row {
+    display: flex;
+    gap: 18px;
+}
+
+.social-row a {
+    color: var(--secondary);
+
+    text-decoration: none;
+
+    font-size: 14px;
+}
+
+.social-row a:hover {
+    color: #3452e1;
+}
+
+
+/* =========================================
+   TERMINAL CARD
+   ========================================= */
+
+.terminal-card {
+    background: #0f1526;
+
+    border: 1px solid #26304a;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    font-family: monospace;
+    font-size: 13px;
+
+    color: #e7ecf7;
+}
+
+
+/* Terminal header */
+
+.terminal-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 16px;
+
+    border-bottom: 1px solid #26304a;
+
+    color: #8d97b8;
+
+    font-size: 12px;
+}
+
+
+/* Terminal dots */
+
+.terminal-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.terminal-dots span {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #26304a;
+}
+
+
+/* Terminal content */
+
+.terminal-body {
+    padding: 20px;
+
+    line-height: 1.7;
+}
+
+.terminal-body p {
+    margin-top: 0;
+}
+
+
+/* GET */
+
+.method {
+    color: #f2b44d;
+
+    font-weight: bold;
+}
+
+
+/* 200 OK */
+
+.success {
+    color: #59d499;
+
+    font-weight: bold;
+}
+
+.success span {
+    color: #8d97b8;
+
+    font-weight: normal;
+}
+
+
+/* JSON */
+
+.terminal-body pre {
+    margin: 15px 0 0;
+
+    white-space: pre-wrap;
+
+    font-family: monospace;
+
+    color: #8fb4ff;
+}
+
+
+/* Terminal footer */
+
+.terminal-footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 12px 20px;
+
+    border-top: 1px solid #26304a;
+
+    color: #8d97b8;
+
+    font-size: 12px;
+}
+
+.terminal-footer strong {
+    color: #59d499;
+}

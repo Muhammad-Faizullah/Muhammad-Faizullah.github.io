@@ -1,0 +1,170 @@
+{{ define "main" }}
+
+<div class="portfolio-home">
+
+    <!-- Navigation -->
+    <nav class="portfolio-nav">
+        <div class="nav-id">
+            ~/<strong>faizullah</strong>
+        </div>
+
+        <button
+            id="themeToggle"
+            class="theme-btn"
+            aria-label="Toggle theme"
+        >
+            ◐
+        </button>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <!-- Left Side -->
+        <div class="hero-content">
+
+            <div class="availability">
+                <span class="status-dot"></span>
+                AVAILABLE FOR FREELANCE WORK
+            </div>
+
+            <h1>
+                Muhammad<br>
+                Faizullah
+            </h1>
+
+            <p class="tagline">
+                I build reliable backend systems, REST APIs, and integrations
+                using Python and Django.
+            </p>
+
+
+            <!-- Buttons -->
+            <div class="cta-row">
+
+                <a href="/projects" class="btn btn-primary">
+                    GET /projects
+                </a>
+
+                <a
+                    href="https://wa.me/923440516543"
+                    class="btn btn-secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Contact Me →
+                </a>
+
+            </div>
+
+
+            <!-- Social Links -->
+            <div class="social-row">
+
+                <a
+                    href="https://github.com/Muhammad-Faizullah"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub ↗
+                </a>
+
+                <a
+                    href="https://linkedin.com/in/muhammad-faizullah-0921a8375/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn ↗
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Right Side: Backend API Card -->
+        <div class="terminal-card">
+
+            <!-- Terminal Header -->
+            <div class="terminal-header">
+
+                <div class="terminal-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <span>profile.request</span>
+
+            </div>
+
+
+            <!-- Terminal Body -->
+            <div class="terminal-body">
+
+                <p>
+                    <span class="method">GET</span>
+                    /api/v1/profile
+                </p>
+
+                <p class="success">
+                    200 OK
+                    <span>· 42ms</span>
+                </p>
+
+                <pre>{
+  "role": "Backend Developer",
+  "stack": [
+    "Python",
+    "Django",
+    "DRF",
+    "Celery"
+  ],
+  "focus": [
+    "REST APIs",
+    "Integrations",
+    "Backend Systems"
+  ]
+}</pre>
+
+            </div>
+
+
+            <!-- Terminal Footer -->
+            <div class="terminal-footer">
+                <span>
+                    status <strong>operational</strong>
+                </span>
+
+                <span>
+                    building real-world systems
+                </span>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- Theme Toggle Script -->
+<script>
+    const themeButton = document.getElementById("themeToggle");
+
+    themeButton.addEventListener("click", function () {
+        const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+
+        if (currentTheme === "dark") {
+            document.documentElement.setAttribute("data-theme", "light");
+            themeButton.textContent = "◐";
+        } else {
+            document.documentElement.setAttribute("data-theme", "dark");
+            themeButton.textContent = "◑";
+        }
+    });
+</script>
+
+{{ end }}
