@@ -1,43 +1,7 @@
-{{- if lt hugo.Version "0.146.0" }}
-{{- errorf "=> hugo v0.146.0 or greater is required for hugo-PaperMod to build " }}
-{{- end -}}
-
+{{- if lt hugo.Version "0.146.0" }}{{- errorf "=> hugo v0.146.0 or greater is required to build" }}{{- end -}}
 <!DOCTYPE html>
 {{- $theme := site.Params.defaultTheme | default "auto" }}
-{{- if eq $theme "dark" }}
-<html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}" data-theme="dark">
-{{- else if eq $theme "light" }}
-<html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}" data-theme="light">
-{{- else }}
-<html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}" data-theme="auto">
-{{- end }}
-
-<head>
-    {{- partial "head.html" . }}
-</head>
-
-{{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) }}
-<body class="list" id="top">
-{{- else }}
-<body id="top">
-{{- end }}
-    {{ if .IsHome }}
-
-        <main>
-            {{- block "main" . }}{{ end }}
-        </main>
-
-    {{ else }}
-
-        {{ partialCached "header.html" . .Page -}}
-
-        <main class="main">
-            {{- block "main" . }}{{ end }}
-        </main>
-
-        {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
-
-    {{ end }}
-</body>
-
-</html>
+<html lang="{{ site.Language }}" data-theme="{{ $theme }}"><head>{{- partial "head.html" . }}</head>
+{{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) }}<body class="list" id="top">{{- else }}<body id="top">{{- end }}
+{{ if .IsHome }}<main>{{- block "main" . }}{{ end }}</main>{{ else }}{{ if ne .Section "projects" }}{{ partialCached "header.html" . .Page }}{{ end }}<main class="main">{{- block "main" . }}{{ end }}</main>{{ if ne .Section "projects" }}{{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") }}{{ end }}{{ end }}
+<script>(function(){var old=document.getElementById('themeToggle');if(!old)return;var btn=old.cloneNode(true);old.replaceWith(btn);var saved=localStorage.getItem('pf-theme');if(saved){document.documentElement.setAttribute('data-theme',saved);document.documentElement.classList.toggle('dark',saved==='dark')}btn.addEventListener('click',function(){var next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',next);document.documentElement.classList.toggle('dark',next==='dark');localStorage.setItem('pf-theme',next)})})();</script></body></html>
