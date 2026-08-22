@@ -1,209 +1,77 @@
 {{ define "main" }}
+<div class="pf-shell">
+  <nav class="pf-nav" aria-label="Primary navigation">
+    <a class="pf-brand" href="{{ "/" | relURL }}"><span>~/</span>faizullah</a>
+    <div class="pf-nav-links">
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button id="themeToggle" class="pf-theme" type="button" aria-label="Toggle color theme">◐</button>
+  </nav>
 
-<div class="portfolio-home">
-
-    <!-- Navigation -->
-    <nav class="portfolio-nav">
-        <div class="nav-id">
-            ~/<strong>faizullah</strong>
+  <main>
+    <section class="pf-hero">
+      <div class="pf-hero-copy">
+        <div class="pf-kicker"><span class="pf-pulse"></span> AVAILABLE FOR FREELANCE WORK</div>
+        <p class="pf-eyebrow">BACKEND DEVELOPER <span>/</span> PYTHON + DJANGO</p>
+        <h1>Systems that stay<br><em>reliable</em> under pressure.</h1>
+        <p class="pf-lede">I design and build APIs, integrations, and backend workflows that turn complex business rules into dependable software.</p>
+        <div class="pf-actions">
+          <a class="pf-btn pf-btn-primary" href="#work">Explore my work <span>↘</span></a>
+          <a class="pf-btn pf-btn-ghost" href="https://wa.me/923440516543" target="_blank" rel="noopener noreferrer">Start a conversation <span>↗</span></a>
         </div>
-
-        <button
-            id="themeToggle"
-            class="theme-btn"
-            aria-label="Toggle theme"
-        >
-            ◐
-        </button>
-    </nav>
-
-
-    <!-- Hero Section -->
-    <section class="hero">
-
-        <!-- Left Side -->
-        <div class="hero-content">
-
-            <div class="availability">
-                <span class="status-dot"></span>
-                AVAILABLE FOR FREELANCE WORK
-            </div>
-
-            <h1>
-                Muhammad<br>
-                Faizullah
-            </h1>
-
-            <p class="tagline">
-                I build reliable backend systems, REST APIs, and integrations
-                using Python and Django.
-            </p>
-
-
-            <!-- Buttons -->
-            <div class="cta-row">
-
-                <a href="/projects" class="btn btn-primary">
-                    GET /projects
-                </a>
-
-                <a
-                    href="https://wa.me/923440516543"
-                    class="btn btn-secondary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Contact Me →
-                </a>
-
-            </div>
-
-
-            <!-- Social Links -->
-            <div class="social-row">
-
-                <!-- GitHub -->
-                <a
-                    href="https://github.com/Muhammad-Faizullah"
-                    class="social-btn"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="17"
-                        height="17"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path d="M15 22v-3.87a4.17 4.17 0 0 0-1-3.22c3.28-.36 6.72-1.61 6.72-7.25A5.67 5.67 0 0 0 19.2 3.7 5.29 5.29 0 0 0 19.06.5S17.86.14 15 2.05a13.38 13.38 0 0 0-6 0C6.14.14 4.94.5 4.94.5A5.29 5.29 0 0 0 4.8 3.7a5.67 5.67 0 0 0-1.52 3.96c0 5.63 3.44 6.88 6.72 7.25a4.17 4.17 0 0 0-1 3.22V22"></path>
-                    </svg>
-
-                    <span>GitHub</span>
-                </a>
-
-
-                <!-- LinkedIn -->
-                <a
-                    href="https://linkedin.com/in/muhammad-faizullah-0921a8375/"
-                    class="social-btn"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="17"
-                        height="17"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect width="4" height="12" x="2" y="9"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-
-                    <span>LinkedIn</span>
-                </a>
-
-            </div>
-
+        <div class="pf-socials">
+          <a href="https://github.com/Muhammad-Faizullah" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
+          <a href="https://linkedin.com/in/muhammad-faizullah-0921a8375/" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
+          <span class="pf-location">Based in Islamabad, Pakistan</span>
         </div>
+      </div>
 
-
-        <!-- Right Side: Backend API Card -->
-        <div class="terminal-card">
-
-            <!-- Terminal Header -->
-            <div class="terminal-header">
-
-                <div class="terminal-dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-
-                <span>profile.request</span>
-
-            </div>
-
-
-            <!-- Terminal Body -->
-            <div class="terminal-body">
-
-                <p>
-                    <span class="method">GET</span>
-                    /api/v1/profile
-                </p>
-
-                <p class="success">
-                    200 OK
-                    <span>· 42ms</span>
-                </p>
-
-                <pre>{
-  "role": "Backend Developer",
-  "stack": [
-    "Python",
-    "Django",
-    "DRF",
-    "Celery"
-  ],
-  "focus": [
-    "REST APIs",
-    "Integrations",
-    "Backend Systems"
-  ]
-}</pre>
-
-            </div>
-
-
-            <!-- Terminal Footer -->
-            <div class="terminal-footer">
-
-                <span>
-                    status <strong>operational</strong>
-                </span>
-
-                <span>
-                    building real-world systems
-                </span>
-
-            </div>
-
+      <div class="pf-console" aria-label="Backend profile status">
+        <div class="pf-console-top"><div class="pf-dots"><i></i><i></i><i></i></div><span>profile.request</span><b>● online</b></div>
+        <div class="pf-console-body">
+          <div class="pf-console-line"><span class="pf-muted">01</span><span><strong>GET</strong> /api/v1/profile</span></div>
+          <div class="pf-console-line"><span class="pf-muted">02</span><span class="pf-success">200 OK <small>· 42ms</small></span></div>
+          <div class="pf-json"><span class="pf-muted">03</span><div>{<br>
+            <span><i>"role"</i>: <b>"Backend Developer"</b>,</span><br>
+            <span><i>"stack"</i>: [<b>"Python"</b>, <b>"Django"</b>, <b>"DRF"</b>],</span><br>
+            <span><i>"focus"</i>: [<b>"APIs"</b>, <b>"Integrations"</b>],</span><br>
+            <span><i>"reliability"</i>: <em>true</em></span><br>}</div></div>
+          <div class="pf-console-footer"><span>response completed</span><span>latency: 42ms</span></div>
         </div>
-
+      </div>
     </section>
 
+    <section class="pf-proof" id="stack">
+      <div><strong>01</strong><span>API-first<br>thinking</span></div>
+      <div><strong>02</strong><span>Clear domain<br>boundaries</span></div>
+      <div><strong>03</strong><span>Async jobs &<br>automation</span></div>
+      <div><strong>04</strong><span>Built for<br>maintainers</span></div>
+    </section>
+
+    <section class="pf-work" id="work">
+      <div class="pf-section-heading"><div><p class="pf-eyebrow">SELECTED WORK</p><h2>Recent builds<span>.</span></h2></div><a href="{{ "/projects" | relURL }}">View all projects <span>↗</span></a></div>
+      <div class="pf-project-grid">
+        {{ $projects := where .Site.RegularPages "Section" "projects" }}
+        {{ range first 4 (sort $projects "Date" "desc") }}
+        <a class="pf-project-card" href="{{ .RelPermalink }}">
+          <div class="pf-project-top"><span class="pf-method">GET</span><span>{{ with .Params.status }}{{ . }}{{ else }}SHIPPED{{ end }}</span></div>
+          <h3>{{ .Title }}</h3>
+          <p>{{ with .Params.domains }}{{ . }}{{ else }}Backend systems, APIs, and reliable business logic.{{ end }}</p>
+          <div class="pf-project-bottom"><span>{{ delimit (first 3 .Params.tags) " · " }}</span><span class="pf-arrow">↗</span></div>
+        </a>
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="pf-contact" id="contact"><div><p class="pf-eyebrow">HAVE A SYSTEM TO BUILD?</p><h2>Let's make the<br><em>backend</em> solid.</h2></div><a class="pf-btn pf-btn-primary" href="https://wa.me/923440516543" target="_blank" rel="noopener noreferrer">Contact me <span>↗</span></a></section>
+  </main>
+  <footer class="pf-footer"><span>© {{ now.Year }} Muhammad Faizullah</span><span>Designed & built with intention <b>✳</b></span></footer>
 </div>
-
-
-<!-- Theme Toggle Script -->
 <script>
-    const themeButton = document.getElementById("themeToggle");
-
-    themeButton.addEventListener("click", function () {
-        const currentTheme =
-            document.documentElement.getAttribute("data-theme");
-
-        if (currentTheme === "dark") {
-            document.documentElement.setAttribute("data-theme", "light");
-            themeButton.textContent = "◐";
-        } else {
-            document.documentElement.setAttribute("data-theme", "dark");
-            themeButton.textContent = "◑";
-        }
-    });
+  const toggle = document.getElementById('themeToggle');
+  toggle?.addEventListener('click', () => { document.documentElement.classList.toggle('dark'); localStorage.setItem('pf-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); });
+  if (localStorage.getItem('pf-theme') === 'dark') document.documentElement.classList.add('dark');
 </script>
-
 {{ end }}
