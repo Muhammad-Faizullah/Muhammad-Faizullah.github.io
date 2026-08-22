@@ -1,89 +1,12 @@
 {{ define "main" }}
-
-<div class="project-page">
-
-    <div class="project-breadcrumb">
-        <a href="{{ "/projects/" | relURL }}">/projects</a>
-        <span>/</span>
-        <span>{{ .File.ContentBaseName }}</span>
-    </div>
-
-    <section class="project-header">
-
-        <div class="project-route">
-            <span class="project-method">GET</span>
-            <span class="project-route-path">/projects/{{ .File.ContentBaseName }}</span>
-
-            {{ with .Params.status }}
-            <span class="project-status">
-                <span class="status-dot"></span>
-                {{ . }}
-            </span>
-            {{ end }}
-        </div>
-
-        <h1>{{ .Title }}</h1>
-
-        <div class="project-meta">
-            <span>{{ .Date.Format "January 2, 2006" }}</span>
-
-            {{ with .Params.readTime }}
-            <span>{{ . }}</span>
-            {{ end }}
-        </div>
-
-        {{ with .Params.tags }}
-        <div class="project-tags">
-            {{ range . }}
-            <span class="project-tag">{{ . }}</span>
-            {{ end }}
-        </div>
-        {{ end }}
-
-    </section>
-
-
-    {{ if or .Params.domains .Params.database .Params.integrity }}
-    <section class="project-stats">
-
-        {{ with .Params.domains }}
-        <div class="project-stat">
-            <div class="stat-label">Domains</div>
-            <div class="stat-value">{{ . }}</div>
-        </div>
-        {{ end }}
-
-        {{ with .Params.database }}
-        <div class="project-stat">
-            <div class="stat-label">Database</div>
-            <div class="stat-value">{{ . }}</div>
-        </div>
-        {{ end }}
-
-        {{ with .Params.integrity }}
-        <div class="project-stat">
-            <div class="stat-label">Integrity</div>
-            <div class="stat-value">{{ . }}</div>
-        </div>
-        {{ end }}
-
-    </section>
-    {{ end }}
-
-
-    <article class="project-content">
-        {{ .Content }}
-    </article>
-
-
-    {{ with .Params.github }}
-    <div class="project-cta">
-        <a href="{{ . }}" target="_blank" rel="noopener">
-            View source on GitHub →
-        </a>
-    </div>
-    {{ end }}
-
+<div class="pf-shell pf-projects-shell">
+  <nav class="pf-nav" aria-label="Primary navigation"><a class="pf-brand" href="{{ "/" | relURL }}"><span>~/</span>faizullah</a><div class="pf-nav-links"><a href="{{ "/projects/" | relURL }}">All work</a><a href="{{ "/#stack" | relURL }}">Stack</a><a href="{{ "/#contact" | relURL }}">Contact</a></div><button id="themeToggle" class="pf-theme" type="button" aria-label="Toggle color theme">◐</button></nav>
+  <div class="pf-detail"><a class="pf-back" href="{{ "/projects/" | relURL }}">← Back to projects</a>
+    <section class="pf-detail-head"><div class="pf-project-top"><span class="pf-method">GET</span><span class="pf-route">/projects/{{ .File.ContentBaseName }}</span><span class="pf-project-state"><i></i>{{ with .Params.status }}{{ . }}{{ else }}SHIPPED{{ end }}</span></div><h1>{{ .Title }}</h1><div class="pf-detail-meta"><span>{{ .Date.Format "January 2, 2006" }}</span>{{ with .Params.readTime }}<span>{{ . }}</span>{{ end }}</div>{{ with .Params.tags }}<div class="pf-tags">{{ range . }}<span>{{ . }}</span>{{ end }}</div>{{ end }}</section>
+    {{ if or .Params.domains .Params.database .Params.integrity }}<section class="pf-stat-grid">{{ with .Params.domains }}<div><small>DOMAINS</small><strong>{{ . }}</strong></div>{{ end }}{{ with .Params.database }}<div><small>DATABASE</small><strong>{{ . }}</strong></div>{{ end }}{{ with .Params.integrity }}<div><small>INTEGRITY</small><strong>{{ . }}</strong></div>{{ end }}</section>{{ end }}
+    <article class="pf-article">{{ .Content }}</article>
+    {{ with .Params.github }}<a class="pf-source" href="{{ . }}" target="_blank" rel="noopener noreferrer">View source on GitHub <span>↗</span></a>{{ end }}
+  </div>
+  <footer class="pf-footer"><span>© {{ now.Year }} Muhammad Faizullah</span><span>Backend developer <b>✳</b></span></footer>
 </div>
-
 {{ end }}
