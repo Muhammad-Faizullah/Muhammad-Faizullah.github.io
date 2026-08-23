@@ -1,5 +1,52 @@
 {{ define "main" }}
-<div class="pf-shell pf-projects-shell"><nav class="pf-nav"><a class="pf-brand" href="{{ "/" | relURL }}"><span>~/</span>faizullah</a><div class="pf-nav-links"><a href="{{ "/#work" | relURL }}">Work</a><a href="{{ "/#stack" | relURL }}">Stack</a><a href="{{ "/#contact" | relURL }}">Contact</a></div><button id="themeToggle" class="pf-theme" type="button" aria-label="Toggle color theme">◐</button></nav>
-<section class="pf-page-intro"><p class="pf-eyebrow">GET /projects</p><h1>Selected <em>systems</em>.</h1><p>Backend work built around clear domain logic, dependable APIs, and workflows that are easier to maintain.</p></section>
-<section class="pf-project-list">{{ range .Pages.ByDate.Reverse }}<a class="pf-project-wide" href="{{ .RelPermalink }}"><div class="pf-project-top"><span class="pf-method">GET</span><span class="pf-route">{{ .RelPermalink }}</span><span class="pf-project-state"><i></i>{{ with .Params.status }}{{ . }}{{ else }}SHIPPED{{ end }}</span></div><div class="pf-wide-main"><div><h2>{{ .Title }}</h2><p>{{ with .Params.domains }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 220 }}{{ end }}</p></div><span class="pf-big-arrow">↗</span></div><div class="pf-project-bottom"><span>{{ delimit (first 4 .Params.tags) " · " }}</span><span>{{ .Date.Format "Jan 2006" }}</span></div></a>{{ end }}</section>
-<footer class="pf-footer"><span>© {{ now.Year }} Muhammad Faizullah</span><span>Backend developer <b>✳</b></span></footer></div>{{ end }}
+<div class="pf-shell pf-projects-shell">
+    <nav class="pf-nav">
+        <a class="pf-brand" href="{{ " /" | relURL }}">
+            <span>~/</span>faizullah
+        </a>
+        <div class="pf-nav-links">
+            <a href="{{ " /#work" | relURL }}">Work</a>
+            <a href="{{ " /#stack" | relURL }}">Stack</a>
+            <a href="{{ " /#contact" | relURL }}">Contact</a>
+        </div>
+        <button id="themeToggle" class="pf-theme" type="button" aria-label="Toggle color theme">◐</button>
+    </nav>
+
+    <section class="pf-page-intro">
+        <p class="pf-eyebrow">GET /projects</p>
+        <h1>Selected <em>systems</em>.</h1>
+        <p>Backend work built around clear domain logic, dependable APIs, and workflows that are easier to maintain.</p>
+    </section>
+
+    <section class="pf-project-list">
+        {{ range .Pages.ByDate.Reverse }}
+        <a class="pf-project-wide" href="{{ .RelPermalink }}">
+            <div class="pf-project-top">
+                <span class="pf-method">GET</span>
+                <span class="pf-route">{{ .RelPermalink }}</span>
+                <span class="pf-project-state">
+                    <i></i>
+                    {{ with .Params.status }}{{ . }}{{ else }}SHIPPED{{ end }}
+                </span>
+            </div>
+            <div class="pf-wide-main">
+                <div>
+                    <h2>{{ .Title }}</h2>
+                    <p>{{ with .Params.domains }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 220 }}{{ end }}</p>
+                </div>
+                <span class="pf-big-arrow">↗</span>
+            </div>
+            <div class="pf-project-bottom">
+                <span>{{ delimit (first 4 .Params.tags) " · " }}</span>
+                <span>{{ .Date.Format "Jan 2006" }}</span>
+            </div>
+        </a>
+        {{ end }}
+    </section>
+
+    <footer class="pf-footer">
+        <span>© {{ now.Year }} Muhammad Faizullah</span>
+        <span>Backend developer <b>✳</b></span>
+    </footer>
+</div>
+{{ end }}

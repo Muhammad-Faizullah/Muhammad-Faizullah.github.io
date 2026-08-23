@@ -1,23 +1,694 @@
 {{ define "main" }}
 <div class="pf-shell pf-invisible-system">
-<a class="pf-skip" href="#content">Skip to content</a>
-<nav class="pf-nav" aria-label="Primary navigation"><a class="pf-brand" href="{{ "/" | relURL }}"><span>~/</span>faizullah</a><div class="pf-nav-links"><a href="#capabilities">Capabilities</a><a href="#work">Systems</a><a href="#approach">Approach</a><a href="#contact">Contact</a></div><button id="themeToggle" class="pf-theme" type="button" aria-label="Toggle color theme">◐</button></nav>
-<main id="content">
-<section class="is-hero"><div class="is-hero-copy"><p class="pf-eyebrow">BACKEND ENGINEER <span>/</span> SYSTEMS, APIS & SCALE</p><h1>I build the systems users never see—<em>and businesses depend on.</em></h1><p class="is-lede">Backend engineering for reliable products, scalable platforms, and infrastructure designed to perform under real-world pressure.</p><div class="pf-actions"><a class="pf-btn pf-btn-primary" href="#contact">Discuss a backend project <span>↗</span></a><a class="pf-btn pf-btn-ghost" href="#capabilities">Explore capabilities <span>↓</span></a></div><div class="is-availability"><span class="pf-pulse"></span> Available for selected backend engagements <span class="is-rule"></span><span>Islamabad / PKT</span></div></div>
-<div class="is-map-wrap"><div class="is-map-label is-map-label-top">LIVE SYSTEM MAP <span>01 — 09</span></div><svg class="is-map" viewBox="0 0 520 470" role="img" aria-labelledby="mapTitle mapDesc"><title id="mapTitle">Conceptual backend system map</title><desc id="mapDesc">Connected service layers showing a request moving from client through API, auth, database, queue and monitoring.</desc><g class="is-lines"><path d="M72 115L185 75L307 122L424 75M185 75L164 210L307 122L355 280L424 75M164 210L72 335L224 390L355 280L424 365M164 210L307 122M224 390L355 280"/><path class="is-path" d="M72 115L185 75L307 122L355 280L224 390"/></g><g class="is-nodes"><g transform="translate(72 115)"><circle r="18"/><text y="39">CLIENT</text></g><g transform="translate(185 75)"><circle r="22"/><text y="43">API</text></g><g transform="translate(307 122)"><circle r="18"/><text y="39">AUTH</text></g><g transform="translate(424 75)"><circle r="18"/><text y="39">CACHE</text></g><g transform="translate(164 210)"><circle r="25" class="is-node-core"/><text y="47">SERVICE</text></g><g transform="translate(355 280)"><circle r="21"/><text y="43">QUEUE</text></g><g transform="translate(72 335)"><circle r="18"/><text y="39">DB</text></g><g transform="translate(224 390)"><circle r="18"/><text y="39">WORKER</text></g><g transform="translate(424 365)"><circle r="18"/><text y="39">OBSERVE</text></g></g><circle class="is-packet" r="4" cx="72" cy="115"/></svg><div class="is-map-label is-map-label-bottom"><span>REQUEST FLOW</span><span class="is-live-dot"></span><span>OBSERVABLE</span></div></div></section>
-<section class="is-statement"><span class="is-index">/ 01</span><p>Good backend work is invisible by design. It gives every visible product the confidence to move faster.</p></section>
-<section class="is-capabilities" id="capabilities"><div class="is-section-intro"><p class="pf-eyebrow">CAPABILITIES</p><h2>Structure for<br><em>complexity.</em></h2><p>From first endpoint to production operations, I focus on the decisions that make systems dependable.</p></div><div class="is-capability-list"><div><b>01</b><h3>API architecture</h3><p>Clear contracts and maintainable services that make products easier to extend.</p></div><div><b>02</b><h3>Data & domain design</h3><p>Thoughtful models and boundaries that keep business logic accurate as it grows.</p></div><div><b>03</b><h3>Async workflows</h3><p>Background jobs, queues, and integrations designed to keep the experience responsive.</p></div><div><b>04</b><h3>Reliability mindset</h3><p>Security, observability, and failure-aware engineering from the beginning.</p></div></div></section>
-<section class="is-work" id="work"><div class="is-section-bar"><p class="pf-eyebrow">SELECTED SYSTEMS</p><a href="{{ "/projects" | relURL }}">View all work ↗</a></div><div class="pf-project-grid">{{ $projects := where .Site.RegularPages "Section" "projects" }}{{ range first 4 (sort $projects "Date" "desc") }}<a class="pf-project-card" href="{{ .RelPermalink }}"><div class="pf-project-top"><span class="pf-method">SYSTEM / {{ printf "%02d" (add 1 (sub 4 (len (where $projects "Date" ">" .Date)))) }}</span><span>{{ with .Params.status }}{{ . }}{{ else }}SHIPPED{{ end }}</span></div><h3>{{ .Title }}</h3><p>{{ with .Params.domains }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 150 }}{{ end }}</p><div class="pf-project-bottom"><span>{{ delimit (first 3 .Params.tags) " · " }}</span><span class="pf-arrow">↗</span></div></a>{{ end }}</div></section>
-<section class="is-approach" id="approach"><div><p class="pf-eyebrow">ENGINEERING APPROACH</p><h2>Make it clear.<br>Make it <em>last.</em></h2></div><ol><li><b>01</b><span>Understand the product and constraints</span></li><li><b>02</b><span>Model the data and system boundaries</span></li><li><b>03</b><span>Build secure, observable services</span></li><li><b>04</b><span>Test failure scenarios and optimize</span></li></ol></section>
-<section class="pf-contact is-contact" id="contact"><div><p class="pf-eyebrow">HAVE A BACKEND CHALLENGE?</p><h2>Let's build what<br>people <em>depend on.</em></h2><p>Tell me what you are building, where the system is struggling, and what success needs to look like.</p></div><a class="pf-btn pf-btn-primary" href="https://wa.me/923440516543" target="_blank" rel="noopener noreferrer">Start a conversation <span>↗</span></a></section>
-<script>
-(function(){
-  document.documentElement.classList.add('has-motion');
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var items=document.querySelectorAll('.is-statement,.is-capabilities,.is-work,.is-approach,.is-contact');
-  items.forEach(function(item){item.classList.add('is-reveal')});
-  var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}})},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
-  items.forEach(function(item){observer.observe(item)});
-})();
-</script>
-</main><footer class="pf-footer"><span>© {{ now.Year }} Muhammad Faizullah</span><span>Backend systems / APIs / reliability <b>✳</b></span></footer></div>{{ end }}
+  <a class="pf-skip" href="#content">Skip to content</a>
+  <nav class="pf-nav" aria-label="Primary navigation">
+    <a class="pf-brand" href="{{ " /" | relURL }}">
+      <span>~/</span>faizullah
+    </a>
+    <div class="pf-nav-links">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#work">Systems</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button id="themeToggle" class="pf-theme" type="button" aria-label="Toggle color theme">◐</button>
+  </nav>
+
+  <main id="content">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+      .hero-v2 {
+        --h-bg: #F1EFE6;
+        --h-ink: #17190F;
+        --h-muted: #6F6E60;
+        --h-line: #DCD8CA;
+        --h-accent: #6F8F4A;
+        --h-accent-deep: #4C6534;
+        --h-node: #CFCCBC;
+
+        background-color: var(--h-bg);
+        color: var(--h-ink);
+        padding: 56px 64px;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 40px;
+        align-items: center;
+        border-bottom: 1px solid var(--h-line);
+        min-height: 80vh;
+      }
+
+      @media (max-width: 980px) {
+        .hero-v2 {
+          grid-template-columns: 1fr;
+          padding: 40px 24px;
+        }
+      }
+
+      .hero-v2-copy {
+        font-family: 'Inter', sans-serif;
+      }
+
+      .hero-v2-eyebrow {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--h-muted);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 24px;
+        opacity: 0;
+        animation: hFadeUp 0.8s 0.05s forwards;
+      }
+
+      .hero-v2-eyebrow::before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        background-color: var(--h-accent);
+        border-radius: 50%;
+      }
+
+      .hero-v2-headline {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: clamp(40px, 5vw, 64px);
+        line-height: 1.05;
+        margin: 0 0 24px 0;
+        letter-spacing: -0.03em;
+      }
+
+      .hero-v2-headline-line {
+        overflow: hidden;
+        display: block;
+      }
+
+      .hero-v2-headline-line span {
+        display: block;
+        transform: translateY(120%);
+        animation: hReveal 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+      }
+
+      .hero-v2-headline-line:nth-child(1) span {
+        animation-delay: 0.10s;
+      }
+
+      .hero-v2-headline-line:nth-child(2) span {
+        animation-delay: 0.18s;
+      }
+
+      .hero-v2-headline-line:nth-child(3) span {
+        animation-delay: 0.26s;
+      }
+
+      .hero-v2-headline-line:nth-child(4) span {
+        animation-delay: 0.34s;
+        color: var(--h-accent-deep);
+      }
+
+      .hero-v2-subtext {
+        max-width: 460px;
+        color: var(--h-muted);
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 40px;
+        font-weight: 400;
+        opacity: 0;
+        animation: hFadeUp 0.8s 0.6s forwards;
+      }
+
+      .hero-v2-actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: hFadeUp 0.8s 0.7s forwards;
+      }
+
+      .hero-btn {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 14px 24px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: transform 0.2s, background-color 0.2s;
+      }
+
+      .hero-btn-primary {
+        background-color: var(--h-accent);
+        color: var(--h-bg);
+      }
+
+      .hero-btn-primary:hover {
+        background-color: var(--h-accent-deep);
+        transform: translateY(-2px);
+      }
+
+      .hero-btn-primary:hover .arr {
+        transform: translate(2px, -2px);
+      }
+
+      .hero-btn-primary .arr {
+        transition: transform 0.2s;
+      }
+
+      .hero-btn-secondary {
+        border: 1px solid var(--h-line);
+        color: var(--h-ink);
+      }
+
+      .hero-btn-secondary:hover {
+        background-color: rgba(0, 0, 0, 0.03);
+      }
+
+      .hero-btn-secondary .arr {
+        animation: hBob 2s infinite ease-in-out;
+      }
+
+      .hero-v2-visual {
+        position: relative;
+        border: 1px solid var(--h-line);
+        background-color: var(--h-bg);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        animation: hFadeUp 0.8s 0.3s forwards;
+      }
+
+      .hero-v2-chrome {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 16px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 10px;
+        text-transform: uppercase;
+        color: var(--h-muted);
+        letter-spacing: 0.05em;
+      }
+
+      .hero-v2-chrome.top {
+        border-bottom: 1px solid var(--h-line);
+      }
+
+      .hero-v2-chrome.bottom {
+        border-top: 1px solid var(--h-line);
+        align-items: center;
+      }
+
+      .hero-active-link {
+        font-weight: 700;
+        color: var(--h-accent-deep);
+      }
+
+      .obs-label {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .obs-dot {
+        width: 6px;
+        height: 6px;
+        background-color: var(--h-accent);
+        border-radius: 50%;
+        animation: hPulse 2s infinite;
+      }
+
+      .globe-container {
+        aspect-ratio: 1 / 1;
+        max-width: 440px;
+        margin: 20px auto 0;
+        width: 100%;
+        position: relative;
+      }
+
+      canvas#globe-canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+        cursor: default;
+      }
+
+      @keyframes hFadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      @keyframes hReveal {
+        from {
+          transform: translateY(120%);
+        }
+
+        to {
+          transform: none;
+        }
+      }
+
+      @keyframes hBob {
+
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(4px);
+        }
+      }
+
+      @keyframes hPulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(111, 143, 74, 0.4);
+        }
+
+        70% {
+          box-shadow: 0 0 0 6px rgba(111, 143, 74, 0);
+        }
+
+        100% {
+          box-shadow: 0 0 0 0 rgba(111, 143, 74, 0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+
+        .hero-v2-eyebrow,
+        .hero-v2-subtext,
+        .hero-v2-actions,
+        .hero-v2-visual {
+          animation: none;
+          opacity: 1;
+        }
+
+        .hero-v2-headline-line span {
+          animation: none;
+          transform: none;
+        }
+
+        .hero-btn-secondary .arr,
+        .obs-dot {
+          animation: none;
+        }
+      }
+    </style>
+
+    <section class="hero-v2">
+      <div class="hero-v2-copy">
+        <div class="hero-v2-eyebrow">Backend Engineer / Systems, APIs & Scale</div>
+        <h1 class="hero-v2-headline">
+          <span class="hero-v2-headline-line"><span>I build the</span></span>
+          <span class="hero-v2-headline-line"><span>systems users</span></span>
+          <span class="hero-v2-headline-line"><span>never see—</span></span>
+          <span class="hero-v2-headline-line"><span>and businesses depend on.</span></span>
+        </h1>
+        <p class="hero-v2-subtext">
+          Backend engineering for reliable products, scalable platforms, and infrastructure designed to perform under
+          real-world pressure.
+        </p>
+        <div class="hero-v2-actions">
+          <a href="#contact" class="hero-btn hero-btn-primary">Discuss a backend project <span class="arr">↗</span></a>
+          <a href="#capabilities" class="hero-btn hero-btn-secondary">Explore capabilities <span
+              class="arr">↓</span></a>
+        </div>
+      </div>
+
+      <div class="hero-v2-visual">
+        <div class="hero-v2-chrome top">
+          <span>Global Network</span>
+          <span>9/9 Online</span>
+        </div>
+
+        <div class="globe-container">
+          <canvas id="globe-canvas"></canvas>
+        </div>
+
+        <div class="hero-v2-chrome bottom">
+          <span>Active Link</span>
+          <span class="hero-active-link" id="active-link-text">Waiting...</span>
+          <span class="obs-label"><i class="obs-dot"></i> Observable</span>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      (function () {
+        const canvas = document.getElementById('globe-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const activeEdgeEl = document.getElementById('active-link-text');
+
+        const R_ratio = 0.36;
+        const perspective = 2.6;
+        const tiltX = 18 * Math.PI / 180;
+        let spinY = 0;
+
+        const nodes = {
+          'Client': { lat: 10, lon: 0 },
+          'API': { lat: 42, lon: 42 },
+          'Auth': { lat: 0, lon: 92 },
+          'Cache': { lat: 52, lon: 132 },
+          'Service': { lat: -8, lon: -28 },
+          'Queue': { lat: -32, lon: 62 },
+          'DB': { lat: -52, lon: -62 },
+          'Worker': { lat: -22, lon: 162 },
+          'Observe': { lat: 30, lon: -122 }
+        };
+
+        const edges = [
+          ['Client', 'API'], ['API', 'Auth'], ['Auth', 'Cache'],
+          ['Service', 'API'], ['Service', 'Auth'], ['Service', 'DB'],
+          ['Service', 'Worker'], ['Auth', 'Queue'], ['Worker', 'Queue'],
+          ['Queue', 'Observe']
+        ];
+
+        function resize() {
+          const dpr = Math.min(2, window.devicePixelRatio || 1);
+          const rect = canvas.parentNode.getBoundingClientRect();
+          const size = Math.min(rect.width, rect.height);
+          if (canvas.width !== Math.floor(size * dpr) || canvas.height !== Math.floor(size * dpr)) {
+            canvas.width = size * dpr;
+            canvas.height = size * dpr;
+            canvas.style.width = `${size}px`;
+            canvas.style.height = `${size}px`;
+          }
+          return { cw: canvas.width, ch: canvas.height, w: size, h: size, dpr };
+        }
+
+        function getPt(lat, lon) {
+          const la = lat * Math.PI / 180;
+          const lo = lon * Math.PI / 180;
+          return {
+            x: Math.cos(la) * Math.sin(lo),
+            y: -Math.sin(la),
+            z: Math.cos(la) * Math.cos(lo)
+          };
+        }
+
+        function rotY(p, a) {
+          const c = Math.cos(a), s = Math.sin(a);
+          return { x: p.x * c + p.z * s, y: p.y, z: -p.x * s + p.z * c };
+        }
+        function rotX(p, a) {
+          const c = Math.cos(a), s = Math.sin(a);
+          return { x: p.x, y: p.y * c - p.z * s, z: p.y * s + p.z * c };
+        }
+
+        function project(p, dims) {
+          const cx = dims.w / 2, cy = dims.h / 2;
+          const R = Math.min(dims.w, dims.h) * R_ratio;
+
+          let pr = rotY(p, spinY);
+          pr = rotX(pr, tiltX);
+
+          const scale = perspective / (perspective + pr.z);
+          return {
+            x: pr.x, y: pr.y, z: pr.z,
+            sx: cx + pr.x * R * scale,
+            sy: cy + pr.y * R * scale,
+            depthZ: -pr.z
+          };
+        }
+
+        let pulseState = null;
+        let lastPulseTime = performance.now();
+        let loaded = performance.now();
+        let pulsing = false;
+
+        function pickPulse() {
+          const e = edges[Math.floor(Math.random() * edges.length)];
+          pulseState = { e, t: 0, from: nodes[e[0]], to: nodes[e[1]] };
+          if (activeEdgeEl) activeEdgeEl.innerText = `${e[0]} ↔ ${e[1]}`;
+        }
+
+        function drawFrame() {
+          const prm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (!prm) spinY += 0.0032;
+
+          const dims = resize();
+          ctx.save();
+          ctx.scale(dims.dpr, dims.dpr);
+          ctx.clearRect(0, 0, dims.w, dims.h);
+
+          // Lat lines
+          for (let lat of [-60, -30, 0, 30, 60]) {
+            for (let lon = 0; lon <= 360; lon += 12) {
+              const p1 = project(getPt(lat, lon), dims);
+              const p2 = project(getPt(lat, lon + 12), dims);
+              const avgZ = (p1.depthZ + p2.depthZ) / 2;
+              const alpha = 0.06 + Math.max(0, (avgZ + 1) / 2) * 0.16;
+              ctx.strokeStyle = `rgba(23,25,15,${alpha})`;
+              ctx.beginPath();
+              ctx.moveTo(p1.sx, p1.sy);
+              ctx.lineTo(p2.sx, p2.sy);
+              ctx.stroke();
+            }
+          }
+
+          // Lon lines
+          for (let lon of [0, 45, 90, 135, 180, 225, 270, 315]) {
+            for (let lat = -90; lat <= 90; lat += 12) {
+              const p1 = project(getPt(lat, lon), dims);
+              const p2 = project(getPt(lat + 12, lon), dims);
+              const avgZ = (p1.depthZ + p2.depthZ) / 2;
+              const alpha = 0.06 + Math.max(0, (avgZ + 1) / 2) * 0.16;
+              ctx.strokeStyle = `rgba(23,25,15,${alpha})`;
+              ctx.beginPath();
+              ctx.moveTo(p1.sx, p1.sy);
+              ctx.lineTo(p2.sx, p2.sy);
+              ctx.stroke();
+            }
+          }
+
+          // Chords
+          edges.forEach(e => {
+            const p1 = project(getPt(nodes[e[0]].lat, nodes[e[0]].lon), dims);
+            const p2 = project(getPt(nodes[e[1]].lat, nodes[e[1]].lon), dims);
+            const avgZ = (p1.depthZ + p2.depthZ) / 2;
+            const alpha = 0.08 + Math.max(0, (avgZ + 1) / 2) * 0.32;
+            ctx.strokeStyle = `rgba(76,101,52,${alpha})`;
+            ctx.beginPath();
+            ctx.moveTo(p1.sx, p1.sy);
+            ctx.lineTo(p2.sx, p2.sy);
+            ctx.stroke();
+          });
+
+          // Static outer silhouette circle
+          const cx = dims.w / 2;
+          const cy = dims.h / 2;
+          const R = dims.w * R_ratio;
+          ctx.beginPath();
+          ctx.arc(cx, cy, R, 0, Math.PI * 2);
+          ctx.strokeStyle = 'rgba(23, 25, 15, 0.22)';
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+
+          // Pulse
+          const now = performance.now();
+          if (!prm) {
+            if (!pulsing && now - loaded > 1200) {
+              pulsing = true;
+              pickPulse();
+            } else if (pulsing && !pulseState && now > lastPulseTime) {
+              pickPulse();
+            }
+
+            if (pulseState) {
+              pulseState.t += 16.666 / 1100;
+              if (pulseState.t >= 1) {
+                pulseState = null;
+                lastPulseTime = now + 1800 + Math.random() * 1400;
+              } else {
+                const la = pulseState.from.lat + (pulseState.to.lat - pulseState.from.lat) * pulseState.t;
+                const lo = pulseState.from.lon + (pulseState.to.lon - pulseState.from.lon) * pulseState.t;
+                const p = project(getPt(la, lo), dims);
+                ctx.fillStyle = `rgba(111,143,74,${0.35 + ((p.depthZ + 1) / 2) * 0.65})`;
+                ctx.beginPath();
+                ctx.arc(p.sx, p.sy, 4, 0, Math.PI * 2);
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = '#6F8F4A';
+                ctx.fill();
+                ctx.shadowBlur = 0;
+              }
+            }
+          }
+
+          // Nodes
+          const projNodes = Object.entries(nodes).map(([id, ll]) => {
+            const p = project(getPt(ll.lat, ll.lon), dims);
+            return { id, isHub: id === 'Service', ...p };
+          });
+
+          projNodes.sort((a, b) => a.depthZ - b.depthZ);
+
+          ctx.font = '500 10.5px "JetBrains Mono", monospace';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+
+          projNodes.forEach(pn => {
+            const depth01 = (pn.depthZ + 1) / 2;
+            const r = (pn.isHub ? 8 : 5) * (0.6 + depth01 * 0.6);
+            const alpha = 0.35 + depth01 * 0.65;
+
+            ctx.beginPath();
+            ctx.arc(pn.sx, pn.sy, r, 0, Math.PI * 2);
+            if (pn.isHub) {
+              ctx.fillStyle = `rgba(111,143,74,${alpha})`;
+              ctx.fill();
+            } else {
+              ctx.fillStyle = `rgba(241,239,230,${alpha})`;
+              ctx.fill();
+              ctx.strokeStyle = `rgba(111,143,74,${alpha})`;
+              ctx.lineWidth = 1.25;
+              ctx.stroke();
+            }
+
+            if (depth01 > 0.35) {
+              ctx.fillStyle = `rgba(23,25,15,${alpha})`;
+              ctx.fillText(pn.id.toUpperCase(), pn.sx, pn.sy - r - 8);
+            }
+          });
+
+          ctx.restore();
+          requestAnimationFrame(drawFrame);
+        }
+
+        if (activeEdgeEl) activeEdgeEl.innerText = "WAITING...";
+
+        // Force synchronous initialization immediately so size is accurate
+        resize();
+        requestAnimationFrame(() => {
+          resize();
+          requestAnimationFrame(drawFrame);
+        });
+      })();
+    </script>
+
+    <section class="is-statement">
+      <span class="is-index">/ 01</span>
+      <p>Good backend work is invisible by design. It gives every visible product the confidence to move faster.</p>
+    </section>
+
+    <section class="is-capabilities" id="capabilities">
+      <div class="is-section-intro">
+        <p class="pf-eyebrow">CAPABILITIES</p>
+        <h2>Structure for<br><em>complexity.</em></h2>
+        <p>From first endpoint to production operations, I focus on the decisions that make systems dependable.</p>
+      </div>
+      <div class="is-capability-list">
+        <div>
+          <b>01</b>
+          <h3>API architecture</h3>
+          <p>Clear contracts and maintainable services that make products easier to extend.</p>
+        </div>
+        <div>
+          <b>02</b>
+          <h3>Data & domain design</h3>
+          <p>Thoughtful models and boundaries that keep business logic accurate as it grows.</p>
+        </div>
+        <div>
+          <b>03</b>
+          <h3>Async workflows</h3>
+          <p>Background jobs, queues, and integrations designed to keep the experience responsive.</p>
+        </div>
+        <div>
+          <b>04</b>
+          <h3>Reliability mindset</h3>
+          <p>Security, observability, and failure-aware engineering from the beginning.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="is-work" id="work">
+      <div class="is-section-bar">
+        <p class="pf-eyebrow">SELECTED SYSTEMS</p>
+        <a href="{{ " /projects" | relURL }}">View all work ↗</a>
+      </div>
+      <div class="pf-project-grid">
+        {{ $projects := where .Site.RegularPages "Section" "projects" }}
+        {{ range first 4 (sort $projects "Date" "desc") }}
+        <a class="pf-project-card" href="{{ .RelPermalink }}">
+          <div class="pf-project-top">
+            <span class="pf-method">SYSTEM / {{ printf "%02d" (add 1 (sub 4 (len (where $projects "Date" ">" .Date))))
+              }}</span>
+            <span>{{ with .Params.status }}{{ . }}{{ else }}SHIPPED{{ end }}</span>
+          </div>
+          <h3>{{ .Title }}</h3>
+          <p>{{ with .Params.domains }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 150 }}{{ end }}</p>
+          <div class="pf-project-bottom">
+            <span>{{ delimit (first 3 .Params.tags) " · " }}</span>
+            <span class="pf-arrow">↗</span>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="is-approach" id="approach">
+      <div>
+        <p class="pf-eyebrow">ENGINEERING APPROACH</p>
+        <h2>Make it clear.<br>Make it <em>last.</em></h2>
+      </div>
+      <ol>
+        <li><b>01</b><span>Understand the product and constraints</span></li>
+        <li><b>02</b><span>Model the data and system boundaries</span></li>
+        <li><b>03</b><span>Build secure, observable services</span></li>
+        <li><b>04</b><span>Test failure scenarios and optimize</span></li>
+      </ol>
+    </section>
+
+    <section class="pf-contact is-contact" id="contact">
+      <div>
+        <p class="pf-eyebrow">HAVE A BACKEND CHALLENGE?</p>
+        <h2>Let's build what<br>people <em>depend on.</em></h2>
+        <p>Tell me what you are building, where the system is struggling, and what success needs to look like.</p>
+      </div>
+      <a class="pf-btn pf-btn-primary" href="https://wa.me/923440516543" target="_blank" rel="noopener noreferrer">Start
+        a conversation <span>↗</span></a>
+    </section>
+
+    <script>
+      (function () {
+        document.documentElement.classList.add('has-motion');
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var items = document.querySelectorAll('.is-statement,.is-capabilities,.is-work,.is-approach,.is-contact');
+        items.forEach(function (item) {
+          item.classList.add('is-reveal')
+        });
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          })
+        }, { threshold: .14, rootMargin: '0px 0px -8% 0px' });
+
+        items.forEach(function (item) {
+          observer.observe(item)
+        });
+      })();
+    </script>
+  </main>
+
+  <footer class="pf-footer">
+    <span>© {{ now.Year }} Muhammad Faizullah</span>
+    <span>Backend systems / APIs / reliability <b>✳</b></span>
+  </footer>
+</div>
+{{ end }}
