@@ -1,77 +1,13 @@
 {{ define "main" }}
-<div class="pf-shell">
-  <nav class="pf-nav" aria-label="Primary navigation">
-    <a class="pf-brand" href="{{ "/" | relURL }}"><span>~/</span>faizullah</a>
-    <div class="pf-nav-links">
-      <a href="#work">Work</a>
-      <a href="#stack">Stack</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <button id="themeToggle" class="pf-theme" type="button" aria-label="Toggle color theme">◐</button>
-  </nav>
-
-  <main>
-    <section class="pf-hero">
-      <div class="pf-hero-copy">
-        <div class="pf-kicker"><span class="pf-pulse"></span> AVAILABLE FOR FREELANCE WORK</div>
-        <p class="pf-eyebrow">BACKEND DEVELOPER <span>/</span> PYTHON + DJANGO</p>
-        <h1>Systems that stay<br><em>reliable</em> under pressure.</h1>
-        <p class="pf-lede">I design and build APIs, integrations, and backend workflows that turn complex business rules into dependable software.</p>
-        <div class="pf-actions">
-          <a class="pf-btn pf-btn-primary" href="#work">Explore my work <span>↘</span></a>
-          <a class="pf-btn pf-btn-ghost" href="https://wa.me/923440516543" target="_blank" rel="noopener noreferrer">Start a conversation <span>↗</span></a>
-        </div>
-        <div class="pf-socials">
-          <a href="https://github.com/Muhammad-Faizullah" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
-          <a href="https://linkedin.com/in/muhammad-faizullah-0921a8375/" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
-          <span class="pf-location">Based in Islamabad, Pakistan</span>
-        </div>
-      </div>
-
-      <div class="pf-console" aria-label="Backend profile status">
-        <div class="pf-console-top"><div class="pf-dots"><i></i><i></i><i></i></div><span>profile.request</span><b>● online</b></div>
-        <div class="pf-console-body">
-          <div class="pf-console-line"><span class="pf-muted">01</span><span><strong>GET</strong> /api/v1/profile</span></div>
-          <div class="pf-console-line"><span class="pf-muted">02</span><span class="pf-success">200 OK <small>· 42ms</small></span></div>
-          <div class="pf-json"><span class="pf-muted">03</span><div>{<br>
-            <span><i>"role"</i>: <b>"Backend Developer"</b>,</span><br>
-            <span><i>"stack"</i>: [<b>"Python"</b>, <b>"Django"</b>, <b>"DRF"</b>],</span><br>
-            <span><i>"focus"</i>: [<b>"APIs"</b>, <b>"Integrations"</b>],</span><br>
-            <span><i>"reliability"</i>: <em>true</em></span><br>}</div></div>
-          <div class="pf-console-footer"><span>response completed</span><span>latency: 42ms</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="pf-proof" id="stack">
-      <div><strong>01</strong><span>API-first<br>thinking</span></div>
-      <div><strong>02</strong><span>Clear domain<br>boundaries</span></div>
-      <div><strong>03</strong><span>Async jobs &<br>automation</span></div>
-      <div><strong>04</strong><span>Built for<br>maintainers</span></div>
-    </section>
-
-    <section class="pf-work" id="work">
-      <div class="pf-section-heading"><div><p class="pf-eyebrow">SELECTED WORK</p><h2>Recent builds<span>.</span></h2></div><a href="{{ "/projects" | relURL }}">View all projects <span>↗</span></a></div>
-      <div class="pf-project-grid">
-        {{ $projects := where .Site.RegularPages "Section" "projects" }}
-        {{ range first 4 (sort $projects "Date" "desc") }}
-        <a class="pf-project-card" href="{{ .RelPermalink }}">
-          <div class="pf-project-top"><span class="pf-method">GET</span><span>{{ with .Params.status }}{{ . }}{{ else }}SHIPPED{{ end }}</span></div>
-          <h3>{{ .Title }}</h3>
-          <p>{{ with .Params.domains }}{{ . }}{{ else }}Backend systems, APIs, and reliable business logic.{{ end }}</p>
-          <div class="pf-project-bottom"><span>{{ delimit (first 3 .Params.tags) " · " }}</span><span class="pf-arrow">↗</span></div>
-        </a>
-        {{ end }}
-      </div>
-    </section>
-
-    <section class="pf-contact" id="contact"><div><p class="pf-eyebrow">HAVE A SYSTEM TO BUILD?</p><h2>Let's make the<br><em>backend</em> solid.</h2></div><a class="pf-btn pf-btn-primary" href="https://wa.me/923440516543" target="_blank" rel="noopener noreferrer">Contact me <span>↗</span></a></section>
-  </main>
-  <footer class="pf-footer"><span>© {{ now.Year }} Muhammad Faizullah</span><span>Designed & built with intention <b>✳</b></span></footer>
-</div>
-<script>
-  const toggle = document.getElementById('themeToggle');
-  toggle?.addEventListener('click', () => { document.documentElement.classList.toggle('dark'); localStorage.setItem('pf-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); });
-  if (localStorage.getItem('pf-theme') === 'dark') document.documentElement.classList.add('dark');
-</script>
-{{ end }}
+<div class="pf-shell pf-invisible-system">
+<a class="pf-skip" href="#content">Skip to content</a>
+<nav class="pf-nav" aria-label="Primary navigation"><a class="pf-brand" href="{{ "/" | relURL }}"><span>~/</span>faizullah</a><div class="pf-nav-links"><a href="#capabilities">Capabilities</a><a href="#work">Systems</a><a href="#approach">Approach</a><a href="#contact">Contact</a></div><button id="themeToggle" class="pf-theme" type="button" aria-label="Toggle color theme">◐</button></nav>
+<main id="content">
+<section class="is-hero"><div class="is-hero-copy"><p class="pf-eyebrow">BACKEND ENGINEER <span>/</span> SYSTEMS, APIS & SCALE</p><h1>I build the systems users never see—<em>and businesses depend on.</em></h1><p class="is-lede">Backend engineering for reliable products, scalable platforms, and infrastructure designed to perform under real-world pressure.</p><div class="pf-actions"><a class="pf-btn pf-btn-primary" href="#contact">Discuss a backend project <span>↗</span></a><a class="pf-btn pf-btn-ghost" href="#capabilities">Explore capabilities <span>↓</span></a></div><div class="is-availability"><span class="pf-pulse"></span> Available for selected backend engagements <span class="is-rule"></span><span>Islamabad / PKT</span></div></div>
+<div class="is-map-wrap"><div class="is-map-label is-map-label-top">LIVE SYSTEM MAP <span>01 — 09</span></div><svg class="is-map" viewBox="0 0 520 470" role="img" aria-labelledby="mapTitle mapDesc"><title id="mapTitle">Conceptual backend system map</title><desc id="mapDesc">Connected service layers showing a request moving from client through API, auth, database, queue and monitoring.</desc><g class="is-lines"><path d="M72 115L185 75L307 122L424 75M185 75L164 210L307 122L355 280L424 75M164 210L72 335L224 390L355 280L424 365M164 210L307 122M224 390L355 280"/><path class="is-path" d="M72 115L185 75L307 122L355 280L224 390"/></g><g class="is-nodes"><g transform="translate(72 115)"><circle r="18"/><text y="39">CLIENT</text></g><g transform="translate(185 75)"><circle r="22"/><text y="43">API</text></g><g transform="translate(307 122)"><circle r="18"/><text y="39">AUTH</text></g><g transform="translate(424 75)"><circle r="18"/><text y="39">CACHE</text></g><g transform="translate(164 210)"><circle r="25" class="is-node-core"/><text y="47">SERVICE</text></g><g transform="translate(355 280)"><circle r="21"/><text y="43">QUEUE</text></g><g transform="translate(72 335)"><circle r="18"/><text y="39">DB</text></g><g transform="translate(224 390)"><circle r="18"/><text y="39">WORKER</text></g><g transform="translate(424 365)"><circle r="18"/><text y="39">OBSERVE</text></g></g><circle class="is-packet" r="4" cx="72" cy="115"/></svg><div class="is-map-label is-map-label-bottom"><span>REQUEST FLOW</span><span class="is-live-dot"></span><span>OBSERVABLE</span></div></div></section>
+<section class="is-statement"><span class="is-index">/ 01</span><p>Good backend work is invisible by design. It gives every visible product the confidence to move faster.</p></section>
+<section class="is-capabilities" id="capabilities"><div class="is-section-intro"><p class="pf-eyebrow">CAPABILITIES</p><h2>Structure for<br><em>complexity.</em></h2><p>From first endpoint to production operations, I focus on the decisions that make systems dependable.</p></div><div class="is-capability-list"><div><b>01</b><h3>API architecture</h3><p>Clear contracts and maintainable services that make products easier to extend.</p></div><div><b>02</b><h3>Data & domain design</h3><p>Thoughtful models and boundaries that keep business logic accurate as it grows.</p></div><div><b>03</b><h3>Async workflows</h3><p>Background jobs, queues, and integrations designed to keep the experience responsive.</p></div><div><b>04</b><h3>Reliability mindset</h3><p>Security, observability, and failure-aware engineering from the beginning.</p></div></div></section>
+<section class="is-work" id="work"><div class="is-section-bar"><p class="pf-eyebrow">SELECTED SYSTEMS</p><a href="{{ "/projects" | relURL }}">View all work ↗</a></div><div class="pf-project-grid">{{ $projects := where .Site.RegularPages "Section" "projects" }}{{ range first 4 (sort $projects "Date" "desc") }}<a class="pf-project-card" href="{{ .RelPermalink }}"><div class="pf-project-top"><span class="pf-method">SYSTEM / {{ printf "%02d" (add 1 (sub 4 (len (where $projects "Date" ">" .Date)))) }}</span><span>{{ with .Params.status }}{{ . }}{{ else }}SHIPPED{{ end }}</span></div><h3>{{ .Title }}</h3><p>{{ with .Params.domains }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 150 }}{{ end }}</p><div class="pf-project-bottom"><span>{{ delimit (first 3 .Params.tags) " · " }}</span><span class="pf-arrow">↗</span></div></a>{{ end }}</div></section>
+<section class="is-approach" id="approach"><div><p class="pf-eyebrow">ENGINEERING APPROACH</p><h2>Make it clear.<br>Make it <em>last.</em></h2></div><ol><li><b>01</b><span>Understand the product and constraints</span></li><li><b>02</b><span>Model the data and system boundaries</span></li><li><b>03</b><span>Build secure, observable services</span></li><li><b>04</b><span>Test failure scenarios and optimize</span></li></ol></section>
+<section class="pf-contact is-contact" id="contact"><div><p class="pf-eyebrow">HAVE A BACKEND CHALLENGE?</p><h2>Let's build what<br>people <em>depend on.</em></h2><p>Tell me what you are building, where the system is struggling, and what success needs to look like.</p></div><a class="pf-btn pf-btn-primary" href="https://wa.me/923440516543" target="_blank" rel="noopener noreferrer">Start a conversation <span>↗</span></a></section>
+</main><footer class="pf-footer"><span>© {{ now.Year }} Muhammad Faizullah</span><span>Backend systems / APIs / reliability <b>✳</b></span></footer></div>{{ end }}
