@@ -10,4 +10,14 @@
 <section class="is-work" id="work"><div class="is-section-bar"><p class="pf-eyebrow">SELECTED SYSTEMS</p><a href="{{ "/projects" | relURL }}">View all work ↗</a></div><div class="pf-project-grid">{{ $projects := where .Site.RegularPages "Section" "projects" }}{{ range first 4 (sort $projects "Date" "desc") }}<a class="pf-project-card" href="{{ .RelPermalink }}"><div class="pf-project-top"><span class="pf-method">SYSTEM / {{ printf "%02d" (add 1 (sub 4 (len (where $projects "Date" ">" .Date)))) }}</span><span>{{ with .Params.status }}{{ . }}{{ else }}SHIPPED{{ end }}</span></div><h3>{{ .Title }}</h3><p>{{ with .Params.domains }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 150 }}{{ end }}</p><div class="pf-project-bottom"><span>{{ delimit (first 3 .Params.tags) " · " }}</span><span class="pf-arrow">↗</span></div></a>{{ end }}</div></section>
 <section class="is-approach" id="approach"><div><p class="pf-eyebrow">ENGINEERING APPROACH</p><h2>Make it clear.<br>Make it <em>last.</em></h2></div><ol><li><b>01</b><span>Understand the product and constraints</span></li><li><b>02</b><span>Model the data and system boundaries</span></li><li><b>03</b><span>Build secure, observable services</span></li><li><b>04</b><span>Test failure scenarios and optimize</span></li></ol></section>
 <section class="pf-contact is-contact" id="contact"><div><p class="pf-eyebrow">HAVE A BACKEND CHALLENGE?</p><h2>Let's build what<br>people <em>depend on.</em></h2><p>Tell me what you are building, where the system is struggling, and what success needs to look like.</p></div><a class="pf-btn pf-btn-primary" href="https://wa.me/923440516543" target="_blank" rel="noopener noreferrer">Start a conversation <span>↗</span></a></section>
+<script>
+(function(){
+  document.documentElement.classList.add('has-motion');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var items=document.querySelectorAll('.is-statement,.is-capabilities,.is-work,.is-approach,.is-contact');
+  items.forEach(function(item){item.classList.add('is-reveal')});
+  var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}})},{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  items.forEach(function(item){observer.observe(item)});
+})();
+</script>
 </main><footer class="pf-footer"><span>© {{ now.Year }} Muhammad Faizullah</span><span>Backend systems / APIs / reliability <b>✳</b></span></footer></div>{{ end }}
